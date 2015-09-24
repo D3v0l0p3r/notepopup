@@ -1,0 +1,31 @@
+{
+  "name": "notification",
+  "version": "1.0.0",
+  "homepage": "https://github.com/let-aurn/notification",
+  "authors": [
+    "Let Aurn <let.aurn@gmail.com>"
+  ],
+  "description": "A JavaScript library for a great web Notification system.",
+  "main": [
+    "js/notification.js",
+    "css/notification.css"
+  ],
+  "keywords": [
+    "notification",
+    "alert",
+    "popup",
+    "animate"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "animate.css": "~3.4.0",
+    "jquery": "~2.1.4"
+  }
+}
