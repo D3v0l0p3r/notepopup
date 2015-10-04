@@ -33,37 +33,34 @@ Notification = function () {
             case 4:
                 style = "bottom:" + incPosition + "px; left:20px;";
                 break;
-            default:
-                ;
         }
         return {
             id: number,
             content: '<div class="notification notification-' + number + ' " style="' + style + '">' +
-                '<div class="dismiss">&#10006;</div>' +
-                imageHtml +
-                '<div class="text">' + titleHtml + textHtml + '</div>' +
-                '</div>'
+            imageHtml +
+            '<div class="text">' + titleHtml + textHtml + '</div>' +
+            '</div>'
         };
     };
 
-    var hide = function (id) {
-        $(document).find('.notification-' + id).remove();
-        number = number - 1;
-    };
-
-    var create = function (title, text, image, animation, position, delay) {
-        var notification = template(title, text, image, position);
-        $(notification.content).addClass('animated ' + animation).appendTo('body');
-        if (!delay) {
-            delay = 2;
-        }
+    var hide = function (id, outAnimation) {
+        var notification = $(document).find('.notification-' + id);
+        notification.addClass(outAnimation);
+        $(document).find('.notification').css('top', '-=110px');
+        number -= 1;
         setTimeout(function () {
-            hide(notification.id);
-        }, 1000 * delay);
+            notification.remove();
+        }, 1500);
     };
 
-    return {
-        create: create
+    var create = function (config) {
+        var notification = template(config.title, config.text, config.image, config.position);
+        $(notification.content).addClass('animated ' + config.inAnimation).appendTo('body');
+        setTimeout(function () {
+            hide(notification.id, config.outAnimation);
+        }, config.delay * 1000 || 5000);
     };
+
+    return create;
 
 }();

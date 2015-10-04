@@ -4,7 +4,7 @@
 
 .navbar {
     color: white;
-    background: rebeccapurple;
+    background: #663399;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, .3);
 }
 
@@ -31,11 +31,13 @@
     position: absolute;
     cursor: pointer;
     margin: 10px;
+    color: #77CFB9;
 }
 
 .position.selected {
     background: white;
     box-shadow: 0 2px 6px 0 #66C8B0;
+    color: #333333;
 }
 
 .position:hover {
@@ -92,5 +94,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 footer {
+    margin-top: 50px;
+    border-top: solid 1px white;
     width: 100%;
 }

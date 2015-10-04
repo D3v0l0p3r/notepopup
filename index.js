@@ -6,21 +6,22 @@
 
     var position = 1;
 
-    $('.notify').click(function (event) {
-        Notification.create(
-            "Title",
-            "Long text Long text Long text Long text. 2 lines = Perfect ;)",
-            "/john-doe.jpg",
-            $(event.target).text(),
-            position
-        );
+    $(document).on('click', '.notify', function () {
+        Notification({
+            title: "Title",
+            text: "Long text Long text Long text Long text. 2 lines = Perfect ;)",
+            image: "/john-doe.jpg",
+            inAnimation: $('#inAnimation').val(),
+            outAnimation: $('#outAnimation').val(),
+            position: position
+        });
     });
 
     $(function () {
         $('.position').click(function (event) {
             var el = $(event.target);
-            $('.position').removeClass('selected');
-            el.addClass('selected');
+            $('.position').removeClass('selected notify');
+            el.addClass('selected notify');
             position = el.attr('data-position');
         });
     });
